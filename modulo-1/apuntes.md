@@ -139,3 +139,74 @@ function Padre() {
 
   return <Hijo onClick={saludar} />;      // 2. se la pasa al hijo
 }
+
+## TEMA 8 y 9
+
+Node permite ejecutar las herramientas que construyen y sirven tu aplicación. Tu app corre en el navegador; las herramientas corren sobre Node.
+NPM permite la gestion de dependencias a traves de package.json, es el que registra datos puntuales como la version usada, ya a traves del comando npm install la persona que vea mi repo puede instalar el node_modules con los elementos exactos que yo use. 
+Console — mensajes y errores del código
+Elements — el DOM real, tal como quedó en la página
+Components — el árbol de componentes React y los props de cada uno
+
+## Evaluacion Modulo 1
+
+1. Explicá la diferencia entre código imperativo y declarativo, sin dar ejemplos de código.
+Codigo imperativo son las instrucciones detalladas paso a paso el como para que te devuelva el resultado, codigo declarativo, describis lo que queres y el sistema resuelve el procedimiento. 
+
+2. ¿React es una biblioteca o un framework? Justificá.
+React es una biblioteca considera un caja de herramientas donde nosotros sacamos lo que necesitamos cuando queremos y lo manipulamos. 
+
+3. Durante la reconciliación, ¿qué compara React exactamente? Sé preciso.
+React compara virtual DOM que tiene con el virtual DOM nuevo, analizando los cambios que hay.
+
+4. ¿Por qué el nombre de un componente tiene que empezar con mayúscula?
+Tiene que estar en mayuscula porque es asi como se declara el Componente en React, sino js lo interpreta como etiqueta de HTML y no lo ejecuta. 
+
+5. Tenés <Boton onClick={saludar()} />. ¿Qué va a pasar cuando cargue la página y qué va a pasar cuando el usuario haga clic? Explicá por qué.
+Con parentesis la funcion que pido se ejecuta ni bien cargue la pagina y muestra su resultado pero saludar no devuelve nada queda con undefined y no devuelve nada si se clickea.
+
+6. ¿Qué es JSX y por qué el navegador no puede ejecutarlo directamente?
+JSX no es Javascript, el navegador solo entiende este ultimo y es por ello que JSX necesita traductor se traduce en llamadas a traves de babel haciendo traspiling (proceso de traduccion)
+
+7. Si tu aplicación React corre en el navegador, ¿para qué necesitás Node.js?
+Necesito Node.js porque la aplicacion se sirve de las herramientas que corre en el para funcionar.
+
+8. Tu repositorio no incluye node_modules. ¿Cómo hace otra persona que lo clona para terminar con las mismas bibliotecas que vos?
+Lo que hace la otra persona cuando clona mi repo es utilizar npm install (siempre en cuando este package.json) para instalar todo node_modules que utilice en la app
+
+## Correcion de Errores
+function Boton(props) {
+  return (
+    <button onClick={props.onBorrar}>
+      Borrar
+    </button>
+  );
+}
+
+function Tarjeta(props) {
+
+  function borrar() {
+    alert('Borraste ' + props.titulo);
+  }
+
+  return (
+    <div>
+    <h3>{props.titulo}</h3>
+    <Boton onBorrar={borrar} />
+    </div>
+  );
+} 
+
+## Escribir function Alumno
+function Alumno(props) {
+    return (
+        <div>
+        <h2>{props.nombre}</h2>
+        <p>{props.edad}</p>
+        </div>
+    );
+}
+
+// uso
+<Alumno nombre="Juan" edad={16} />
+<Alumno nombre="Juana" edad={17} />
