@@ -83,3 +83,59 @@ El componente padre le pasa los datos como atributos al usarlo, esos datos llega
 Un componente devuelve un solo elemento. Si hay varios, van adentro de un contenedor.
 En JSX: comillas para texto, llaves para JavaScript. Y className, no class.
 
+## TEMA 6
+Volvé a tu componente Producto del tema anterior y ampliá el ejercicio en apuntes.md.
+
+Parte A. Escribí un componente BotonComprar que reciba una prop llamada onComprar y devuelva un <button> que la ejecute al hacer clic. El texto del botón que diga "Comprar".
+
+Parte B. Modificá Producto para que, además del nombre y el precio, muestre adentro un BotonComprar. Por ahora pasale una función definida dentro de Producto que haga un alert con el nombre del producto.
+
+Guiate por el ejemplo Padre/Hijo. Fijate qué rol cumple cada uno de tus dos componentes: cuál es el padre y cuál el hijo.
+
+1. Respuesta
+
+function BotonComprar(props) {
+  return (
+    <button onClick={props.onComprar}>
+      Comprar
+    </button>
+  );
+}
+
+function Producto(props) {
+
+  function comprar() {
+    alert('Compraste ' + props.nombre);
+  }
+
+  return (
+    <div>
+      <h2>{props.nombre}</h2>
+      <p>{props.precio}</p>
+      <BotonComprar onComprar={comprar} />
+    </div>
+  );
+}
+
+// uso
+<Producto nombre="Coca Cola" precio={5} />
+<Producto nombre="Fanta" precio={4} />
+<Producto nombre="Sprite" precio={4} />
+
+function BotonComprar (props) {
+  return (
+    <button onClick={props.onComprar}>
+    Comprar
+    </button>
+  );
+}
+
+
+function Padre() {
+
+  function saludar() {                    // 1. define la función
+    alert('Hola desde el componente padre');
+  }
+
+  return <Hijo onClick={saludar} />;      // 2. se la pasa al hijo
+}

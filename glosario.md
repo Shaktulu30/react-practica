@@ -55,3 +55,30 @@ Estructura de la página que el navegador arma y que se puede modificar desde JS
 ## Componente padre / hijo 
 — el que contiene y el contenido. Los datos viajan de padre a hijo mediante props.
 Árbol de componentes — la jerarquía completa de una aplicación React.
+
+Glosario del Tema 6
+
+## PascalCase 
+— convención de nombres donde cada palabra empieza con mayúscula y no hay separadores: BotonComprar, ProductList. Se usa para componentes y para sus archivos.
+
+## Responsabilidad única 
+— cada componente hace una sola cosa.
+
+## Función como prop 
+— un padre puede pasarle una función a un hijo, no solo datos. El hijo la ejecuta sin saber qué hace.
+
+## Y la regla que te trabó hoy, que conviene anotar con esas palabras:
+
+En un elemento HTML el nombre del evento lo impone el navegador (onClick). En un componente propio el nombre de la prop lo elegís vos (onComprar).
+
+Glosario del Tema 7
+
+## React.createElement(tipo, props, contenido) 
+— crea un elemento de React. Es en lo que se convierte el JSX.
+
+## ReactDOM.createRoot(elemento).render(...) 
+— le entrega un nodo del DOM a React para que lo gestione.
+Función flecha — () => { ... }, forma corta de escribir una función, útil para definirla en el lugar.
+
+## Babel / transpiling (adelanto del Módulo 2) 
+— la herramienta y el proceso que traducen JSX a JavaScript que el navegador entiende.
