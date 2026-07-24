@@ -210,3 +210,47 @@ function Alumno(props) {
 // uso
 <Alumno nombre="Juan" edad={16} />
 <Alumno nombre="Juana" edad={17} />
+
+## MODULO 2 TEMA 1
+React.createElement("button", { onClick: props.onClick }, props.label)
+//                   ↑ 1        ↑ 2                        ↑ 3
+1. El tipo → se convierte en la etiqueta. "button" con comillas pasa a ser <button> … </button>.
+
+2. Las propiedades → se convierten en atributos de esa etiqueta. { onClick: props.onClick } pasa a escribirse dentro de la etiqueta de apertura. Dos cambios: los dos puntos : se vuelven un igual =, y el valor va entre llaves.
+
+3. El contenido → va entre la etiqueta que abre y la que cierra. Ahí también hacen falta llaves, porque props.label es JavaScript y no texto literal.
+
+Escribilo entero en una sola línea.
+
+// Esto es Javascript
+return React.createElement("button", { onClick: props.onClick }, props.label);
+
+Esto es JSX
+function Button(props) {
+    return <button onClick={props.onClick}>{props.label}</button>;
+} 
+
+return solo en su línea devuelve undefined. JavaScript le agrega un ; automáticamente. Lo que se devuelve arranca en la misma línea del return, o se abre paréntesis ahí mismo.
+
+## TEMA 2
+NavBar ==> Seria un componente presentacional, es puramente visual
+CartWidget ==> Si seria un componente contenedor (si mi ingles no falla) pasaria datos y funciones. 
+ItemDetailContainer ==> seria presentacional supongo
+Item ==> presentacional seria este.
+
+## TEMA 3 setState
+
+A. Escribí un componente Interruptor que use useState para recordar si una luz está prendida. Un botón que al hacer clic invierta el valor, y que muestre "Prendida" o "Apagada" según corresponda. Guiate por el Toggle, pero no lo copies: cambian los nombres.
+
+B. Sin escribir código, respondeme: en tu componente Producto, el nombre y el precio llegan por props. Si quisieras que cada producto recordara cuántas unidades agregó el usuario, ¿eso sería un prop o un estado? Justificá.
+
+
+function Interruptor() {
+  const [encendido, setEncendido] = useState(false);
+
+  return (
+    <button onClick={() => setEncendido(!encendido)}>
+      {encendido ? 'Encendido' : 'Apagado'}
+    </button>
+  );
+}

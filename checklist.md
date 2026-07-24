@@ -2,6 +2,7 @@
 
 Antes de dar un código por terminado, cinco pasadas.
 Una regla por pasada. No busques "algo raro": buscá UNA cosa.
+si algo falla, consola primero. Si no hay error pero el comportamiento está mal, checklist.
 
 ## 1. Mayúsculas
 - [ ] Cada componente empieza con mayúscula, donde se define y donde se usa
@@ -22,3 +23,7 @@ Una regla por pasada. No busques "algo raro": buscá UNA cosa.
 ## 5. Cierres
 - [ ] Cada etiqueta que abre, cierra
 - [ ] Las que no llevan contenido, con />
+
+## 6. Datos incrustados
+- [ ] ¿Este valor es siempre igual, o cambia según quién use el componente?
+- [ ] Si cambia, tiene que venir de props, no estar escrito a mano

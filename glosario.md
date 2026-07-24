@@ -82,3 +82,15 @@ Función flecha — () => { ... }, forma corta de escribir una función, útil p
 
 ## Babel / transpiling (adelanto del Módulo 2) 
 — la herramienta y el proceso que traducen JSX a JavaScript que el navegador entiende.
+
+## MODULO 2
+
+1. JSX (JavaScript XML) 
+— extensión de la sintaxis de JavaScript para escribir estructuras similares a HTML. Se transpila a llamadas a React.createElement.
+2. Azúcar sintáctico 
+— sintaxis más cómoda de escribir que no agrega capacidades nuevas; por debajo produce lo mismo.
+3. Children 
+— los elementos o el texto que van dentro de una etiqueta JSX.
+4. Expresión 
+— algo que produce un valor. Es lo único que puede ir dentro de las llaves {} en JSX.
+htmlFor — el reemplazo de for en JSX, porque for es palabra reservada.
