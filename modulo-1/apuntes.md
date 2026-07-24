@@ -270,3 +270,29 @@ function Alarma () {
 Transpiling reescribe lo que ya se podía hacer. Polyfill agrega lo que no estaba.
 
 Babel solo sabe cambiar unas palabras por otras. Si lo que falta no es una forma de escribir sino una herramienta, no hay nada que reescribir — hay que traerla.
+
+## Los conceptos, por bloque
+
+## JSX (Tema 1)
+Sintaxis parecida a HTML que se transpila a llamadas de React. Las llaves {} aceptan cualquier expresión. className en vez de class, htmlFor en vez de for. Un componente devuelve un solo elemento.
+
+## Contenedor / presentacional (Tema 2)
+El contenedor consigue los datos y maneja el estado; el presentacional los recibe por props y solo dibuja. El criterio: ¿consigue los datos o los recibe ya listos? Es la razón de ItemListContainer / ItemList en tu proyecto.
+
+## Estado y useState (Tema 3)
+const [valor, setValor] = useState(inicial). Una variable común no sirve: se pierde en cada render y no avisa a React. setValor actualiza y provoca re-render. Props vienen de afuera y no se tocan; estado nace adentro y cambia.
+
+## Entorno: Vite y Babel (Temas 5 y 6)
+Transpiling convierte sintaxis moderna a una que el navegador entienda. Babel lo hace; Vite es servidor de desarrollo y build tool. npm run dev para trabajar, npm run build para publicar.
+
+## Polyfills (Temas 7 y 8)
+Transpiling reescribe lo que ya se podía hacer (sintaxis). Un polyfill agrega lo que no estaba (una API). La distinción: ¿es una forma de escribir o una cosa que tiene que existir?
+
+## Tus errores del módulo
+
+1. Incrustar el dato en vez de recibirlo por props. Te pasó con 'Elemento nuevo', con "Nombre Producto" y con "Haz Click Aquí". Es tu error más repetido: si el valor cambia según quién use el componente, viene de props.
+2. return solo en su línea devuelve undefined. JavaScript le mete un ; automático. Lo que devolvés arranca en la misma línea del return, o se abre paréntesis ahí mismo. No da error — por eso es traicionero.
+3. Nombres inconsistentes. desactivada / setDesactivado / setDesactiva, todos distintos. Un nombre se escribe idéntico en todos lados.
+4. false en inglés. La sintaxis es siempre en inglés; los nombres que inventás vos, en el idioma que quieras.
+5. === es comparar, = es asignar. item = {} en vez de item === elemento.
+6. Punto y coma después del if. if (cond); deja el if vacío y ejecuta el bloque siempre. Silencioso.
