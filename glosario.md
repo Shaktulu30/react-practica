@@ -94,3 +94,63 @@ Función flecha — () => { ... }, forma corta de escribir una función, útil p
 4. Expresión 
 — algo que produce un valor. Es lo único que puede ir dentro de las llaves {} en JSX.
 htmlFor — el reemplazo de for en JSX, porque for es palabra reservada.
+
+## TEMA 2
+5. Componente presentacional 
+— solo se ocupa de mostrar. Recibe datos y funciones por props, no maneja estado ni lógica.
+6. Componente contenedor 
+— maneja lógica, estado y acciones. Consigue los datos y se los pasa a los presentacionales.
+7. Función pura 
+— con la misma entrada devuelve siempre lo mismo y no modifica nada externo.
+
+Y el criterio, que es más útil que las definiciones:
+
+¿Consigue los datos o los recibe ya listos?
+
+## TEMA 3
+8. Estado local 
+— datos que un componente mantiene y puede modificar. A diferencia de los props, no vienen de afuera y sí se pueden cambiar.
+9. Hook 
+— función especial de React que agrega capacidades a un componente funcional. useState es el primero que ves.
+10. useState 
+— devuelve el valor actual y una función para actualizarlo. Actualizar provoca un re-render.
+11. Destructuring de array 
+— const [a, b] = array, saca elementos de un array y les da nombre en una línea.
+12. Operador ternario 
+— condición ? a : b. Condicional que produce un valor, por eso sirve dentro de JSX.
+13. Re-render 
+— React vuelve a ejecutar el componente y actualiza lo que haya cambiado.
+
+## TEMA 6&5
+14. Transpiling 
+— transformar código moderno a una versión que los navegadores entiendan.
+15. Babel 
+— la herramienta que lo hace. Convierte JSX a createElement y ES6+ a ES5.
+16. ES5 / ES6 
+— versiones del estándar ECMAScript. ES6 (2015) trajo const, let, flechas, destructuring y módulos.
+17. Vite 
+— servidor de desarrollo y build tool.
+18. HMR 
+— actualización del módulo modificado sin recargar la página entera.
+19. Minificación 
+— comprimir el código para producción quitando espacios y acortando nombres.
+
+## TEMA 7
+20. Retrocompatibilidad 
+— que el código funcione en navegadores o versiones antiguas.
+21. Polyfill 
+— código que implementa una funcionalidad que el entorno no tiene.
+22. API 
+— una herramienta que el entorno provee (Promise, fetch). Existe o no existe.
+23. Sintaxis 
+— la forma de escribir. Se puede reescribir de otra manera equivalente.
+24. core-js 
+— librería de polyfills.
+
+## TEMA 8
+25. Array.prototype 
+— el lugar compartido donde viven los métodos de todos los arrays. Agregar algo ahí lo habilita para todos.
+26. this 
+— dentro de un método, el objeto sobre el que se llamó (el que está antes del punto).
+27. Guarda 
+— el if (!...) que instala el polyfill solo si el método no existe ya.

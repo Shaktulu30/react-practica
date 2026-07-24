@@ -254,3 +254,19 @@ function Interruptor() {
     </button>
   );
 }
+
+function Alarma () {
+  const [desactivada, setDesactivada] = useState (true);
+
+  return (
+    <button onClick={() => setDesactivada(!desactivada)}>
+    {desactivada ? 'Desactivado' : 'Activado'}
+    </button>
+  )
+}
+
+## TEMA 7 polifyll
+
+Transpiling reescribe lo que ya se podía hacer. Polyfill agrega lo que no estaba.
+
+Babel solo sabe cambiar unas palabras por otras. Si lo que falta no es una forma de escribir sino una herramienta, no hay nada que reescribir — hay que traerla.
