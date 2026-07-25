@@ -250,7 +250,17 @@ function Interruptor() {
 
   return (
     <button onClick={() => setEncendido(!encendido)}>
-      {encendido ? 'Encendido' : 'Apagado'}
+      {encendido ? 'Encendida' : 'Apagada'}
+    </button>
+  );
+}
+
+function Semaforo() {
+  const [verde, setVerde] = useState(false);
+
+  return (
+    <button onClick={() => setVerde(!verde)}>
+      {verde ? 'Verde' : 'Rojo'}
     </button>
   );
 }
@@ -296,3 +306,62 @@ Transpiling reescribe lo que ya se podía hacer (sintaxis). Un polyfill agrega l
 4. false en inglés. La sintaxis es siempre en inglés; los nombres que inventás vos, en el idioma que quieras.
 5. === es comparar, = es asignar. item = {} en vez de item === elemento.
 6. Punto y coma después del if. if (cond); deja el if vacío y ejecuta el bloque siempre. Silencioso.
+
+## MODULO 3 CICLO DE VIDA
+Práctica
+
+Corta, en tu proyecto Vite o en apuntes.md.
+
+Escribí un componente Tarjeta que reciba una prop titulo y muestre, dentro de un <div>: el título en un <h2>, y debajo props.children.
+
+Después escribí un uso donde le pases un título y, adentro de las etiquetas, un <p> con un texto cualquiera.
+
+Empezá por el castellano si te ayuda —qué recibe, qué muestra— y después traducilo. Pasale el checklist antes de mandarlo.
+
+## Respuesta
+en Castellano 
+
+Primera: ¿qué recibe la Tarjeta de afuera? Hay dos cosas distintas que le llegan. Una es el título. ¿La otra? (pista: es lo que va metido adentro de las etiquetas cuando la usás). 
+Recibe el titulo y lo que le pongamos dentro
+
+Segunda: ¿qué muestra? Nombrá los dos elementos que van adentro del div, y qué va en cada uno.
+los dos elementos que van es <h2> y el <p> {props.children}
+
+Tercera: cuando la usás, ¿qué le pasás como atributo y qué le pasás adentro de las etiquetas? le paso el titulo como atributo y el contenido entre las etiquetes de apertura y cierre
+
+ORDENADO (algoritmo)
+La Tarjeta recibe un título (como atributo) y un contenido (metido adentro).
+Muestra, dentro de un div: el título en un <h2>, y debajo el contenido en un <div>.
+Al usarla: le paso el título como atributo, y el contenido entre las etiquetas de apertura y cierre.
+
+Ahora traducilo. Dos partes.
+
+Parte 1 — el componente. El esqueleto que ya escribís de memoria: function Tarjeta(props), con su return ( y un <div> afuera. Adentro, los dos elementos:
+
+El <h2> con el título. ¿De dónde sale el título? De props. Va entre llaves.
+Debajo, un <div> con el contenido. El contenido tiene un nombre especial de prop —el que ya nombraste vos—. También entre llaves.
+
+Parte 2 — el uso. Acá está lo nuevo del tema, así que prestá atención a la forma. A diferencia de <Producto ... /> que cerraba sola, esta abre y cierra con etiquetas separadas, porque tiene que haber algo en el medio:
+
+jsx
+<Tarjeta titulo="...">
+  ...contenido acá...
+</Tarjeta>
+
+El titulo="..." es el atributo. Entre las dos etiquetas va un <p> con cualquier texto — eso es lo que llega como children.
+
+Escribí las dos partes y pasale el checklist antes de mandarlas.
+
+function Tarjeta (props) {
+  return (
+    <div>
+    <h2>{props.titulo}</h2>
+    <div>{props.children}</div>
+    </div>
+  );
+}
+
+// uso
+<Tarjeta titulo="Bienvenido">
+<p>Contenido de la tarjeta</p>
+</Tarjeta>
