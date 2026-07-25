@@ -164,7 +164,6 @@ Para qué    datos que se ven	       valores que se recuerdan pero no se muestra
 
 Cómo se lee	    nombre	                    ref.current
 
-Glosario del Tema 3
 1. Input controlado 
 — un campo cuyo valor lo manda el estado de React (value={estado}), y cada cambio actualiza ese estado.
 2. onChange 
@@ -173,3 +172,11 @@ Glosario del Tema 3
 — lo que el usuario escribió en el elemento que disparó el evento.
 4. useRef 
 — hook que guarda un valor persistente sin re-renderizar. Se accede con .current. Su uso típico es referenciar un elemento del DOM.
+
+## TEMA 4
+5. onSubmit 
+— evento del <form>, se dispara al enviar (botón submit o Enter).
+6. preventDefault() 
+— frena el comportamiento por defecto del navegador; en un form, evita la recarga.
+7. ref.current.focus() 
+— pone el cursor dentro de un input, usando la referencia de useRef.

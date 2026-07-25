@@ -1,3 +1,4 @@
+import FormularioContacto from './components/FormularioContacto';
 import Saludador from './components/Saludador';
 import Card from './components/Card';
 import ContadorContenedor from "./components/ContadorContenedor";
@@ -13,6 +14,7 @@ function App() {
         <button>Un boton</button>
       </Card>
       <Saludador />
+      <FormularioContacto />
     </div>
   );
 }
