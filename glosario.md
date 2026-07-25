@@ -154,3 +154,22 @@ Y el criterio, que es más útil que las definiciones:
 — dentro de un método, el objeto sobre el que se llamó (el que está antes del punto).
 27. Guarda 
 — el if (!...) que instala el polyfill solo si el método no existe ya.
+
+## MODULO 3 TEMA 3
+La distinción para el glosario
+	           useState	                    useRef
+Al cambiar	 re-renderiza	            no re-renderiza
+
+Para qué    datos que se ven	       valores que se recuerdan pero no se muestran, o referencias a elementos del DOM
+
+Cómo se lee	    nombre	                    ref.current
+
+Glosario del Tema 3
+1. Input controlado 
+— un campo cuyo valor lo manda el estado de React (value={estado}), y cada cambio actualiza ese estado.
+2. onChange 
+— evento que se dispara cuando cambia el contenido de un campo.
+3. evento.target.value 
+— lo que el usuario escribió en el elemento que disparó el evento.
+4. useRef 
+— hook que guarda un valor persistente sin re-renderizar. Se accede con .current. Su uso típico es referenciar un elemento del DOM.

@@ -1,3 +1,4 @@
+import Saludador from './components/Saludador';
 import Card from './components/Card';
 import ContadorContenedor from "./components/ContadorContenedor";
 
@@ -11,6 +12,7 @@ function App() {
         <p>Segundo Parrafo</p>
         <button>Un boton</button>
       </Card>
+      <Saludador />
     </div>
   );
 }
