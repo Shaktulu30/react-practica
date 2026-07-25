@@ -365,3 +365,31 @@ function Tarjeta (props) {
 <Tarjeta titulo="Bienvenido">
 <p>Contenido de la tarjeta</p>
 </Tarjeta>
+
+## MODULO 3 TEMA 4 promise y useEffect
+Juntando todo: pedir datos al montar
+
+Este es el patrón completo, el que vas a repetir en todo el proyecto final:
+
+javascript
+useEffect(() => {
+  async function fetchData() {
+    try {
+      const response = await fetch('https://...');
+      const data = await response.json();
+      // guardar data en un estado con setData(data)
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  }
+
+  fetchData();
+}, []);
+
+Leélo de afuera hacia adentro:
+
+useEffect(() => { ... }, []) — "hacé esto una vez, al montar"
+adentro se define una función async fetchData
+y en la última línea se la llama: fetchData()
+
+Un detalle que suele confundir: ¿por qué definir la función y después llamarla, en vez de hacer useEffect directamente async? Porque useEffect no puede ser async él mismo —es una regla de React—. Entonces el truco es: la función de adentro sí es async, y la llamás. Tomalo como el patrón estándar; es siempre así.

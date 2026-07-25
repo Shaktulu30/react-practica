@@ -180,3 +180,19 @@ Cómo se lee	    nombre	                    ref.current
 — frena el comportamiento por defecto del navegador; en un form, evita la recarga.
 7. ref.current.focus() 
 — pone el cursor dentro de un input, usando la referencia de useRef.
+
+## TEMA 5
+8. Asincronía 
+— manejar operaciones que tardan sin congelar el programa.
+9. Promise 
+— objeto que representa un resultado futuro que puede cumplirse (resolve) o fallar (reject).
+10. .then / .catch 
+— qué hacer cuando una promesa se cumple o falla (estilo clásico).
+11. async / await 
+— forma moderna de escribir código asíncrono que se lee de arriba a abajo.
+12. try / catch 
+— manejo de errores que acompaña a async/await.
+13. useEffect 
+— hook para ejecutar código en momentos del ciclo de vida; el [] controla cuándo.
+14. fetch 
+— función para pedir datos a una URL (se usa de verdad en el Módulo 4).
