@@ -212,3 +212,13 @@ Cómo se lee	    nombre	                    ref.current
 — número que indica cómo salió la petición (200 OK, 404, 500).
 7. JSON 
 — formato de texto en que viajan los datos; se parece a un objeto JS.
+
+## Tema 4
+8. Patrones de composición 
+— formas de que los componentes trabajen juntos: children, render props, HOC.
+9. children 
+— envolver contenido variable. El que más se usa.
+10. Render props 
+— pasar una función que genera el contenido usando datos del componente. Poco usado hoy.
+11. HOC 
+— función que recibe un componente y devuelve otro con lógica agregada. Poco usado hoy.

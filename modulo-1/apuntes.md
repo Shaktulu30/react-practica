@@ -393,3 +393,60 @@ adentro se define una función async fetchData
 y en la última línea se la llama: fetchData()
 
 Un detalle que suele confundir: ¿por qué definir la función y después llamarla, en vez de hacer useEffect directamente async? Porque useEffect no puede ser async él mismo —es una regla de React—. Entonces el truco es: la función de adentro sí es async, y la llamás. Tomalo como el patrón estándar; es siempre así.
+
+## Repaso · Módulo 4
+El arco del módulo
+
+Este módulo fue "cómo React consigue datos del mundo real". El hilo:
+
+Una app le pide datos a un servidor por HTTP, usando un método según lo que quiera (GET para leer). Con fetch hacés ese pedido dentro de useEffect, y manejás tres estados a la vez: loading (esperando), data (llegó), error (falló). Los datos vienen en JSON y los mostrás con map. Y para organizar todo, separás en contenedor (consigue) y presentacional (muestra), que es una forma de composición —junto a children, render props y HOC.
+
+Los conceptos, por bloque
+
+HTTP y REST (Tema 1)
+Cliente pide, servidor responde. Métodos: GET leer, POST crear, PUT actualizar, DELETE borrar. La respuesta trae un status (200 OK, 404, 500). Los datos viajan en JSON, que se parece a un objeto JS.
+
+fetch (Temas 2-3)
+await fetch(url) pide, await response.json() convierte. Va dentro de un useEffect con [] para correr una vez al montar. Se chequea if (!response.ok) para atrapar errores del servidor, y el catch atrapa fallos de red. Tres estados: loading, data, error. Renderizado condicional con &&.
+
+Composición (Tema 4)
+children (envolver contenido, el que se usa), render props (pasar función que renderiza, poco usado), HOC (envolver un componente con lógica, poco usado).
+
+Lo que sabés hacer ahora
+Pedir datos a una API real con fetch
+Manejar loading, data y error a la vez
+Chequear el status de la respuesta antes de usar los datos
+Mostrar una cosa u otra según el estado (&&)
+Separar el fetch (contenedor) de la presentación (componente aparte)
+Adaptar tu código cuando una API cambia o falla — lo hiciste con el CORS/301
+Tus errores del módulo
+Nombres cruzados al renombrar — cambiaste las declaraciones (fetchPokemons) pero no los usos (fetchCountries()). Solución: F2 renombra todo de una.
+map(item) => en vez de map((item) => — el parámetro va dentro del paréntesis de la flecha.
+Condición mal armada — loading && error !error en vez de !loading && !error.
+Borrar main.jsx / abrir con Live Server — arrastrado del módulo anterior, ojo con eso.
+
+function Frase() {
+  const [frase, setFrase] = useState ('');
+  const [cargando, setCargando] = useState (true);
+  
+useEffect(() => {
+    setTimeout(() => {
+      setFrase("Hola mundo");
+      setCargando(false);
+    }, 1000);
+  }, []);
+
+    return (
+    <div>
+      {cargando ? <p>Cargando...</p> : <p>{frase}</p>}
+    </div>
+  );
+}
+
+export default Frase;
+
+Renderizado condicional de un dato que se carga. 
+
+{loading && <p>Cargando...</p>}
+{error && <p>{error}</p>}
+{!loading && !error && <p>Dato cargado</p>}
