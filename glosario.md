@@ -196,3 +196,19 @@ Cómo se lee	    nombre	                    ref.current
 — hook para ejecutar código en momentos del ciclo de vida; el [] controla cuándo.
 14. fetch 
 — función para pedir datos a una URL (se usa de verdad en el Módulo 4).
+
+## MODULO 4 TEMA 1
+1. Cliente / servidor 
+— quien pide / quien tiene y responde.
+2. API 
+— la interfaz por la que se piden datos a un servidor.
+3. REST 
+— estilo de organizar una API: cada recurso su URL, verbos según la acción.
+4. HTTP 
+— el protocolo de la comunicación web.
+5. GET / POST / PUT / DELETE 
+— leer / crear / actualizar / borrar.
+6. Status 
+— número que indica cómo salió la petición (200 OK, 404, 500).
+7. JSON 
+— formato de texto en que viajan los datos; se parece a un objeto JS.
