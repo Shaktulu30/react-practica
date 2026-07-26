@@ -450,3 +450,102 @@ Renderizado condicional de un dato que se carga.
 {loading && <p>Cargando...</p>}
 {error && <p>{error}</p>}
 {!loading && !error && <p>Dato cargado</p>}
+
+## Repaso · Módulo 5
+El arco del módulo
+
+Este módulo fue "cómo tener páginas sin dejar de ser una sola página". El hilo:
+
+Tu app es una SPA: un solo HTML donde el contenido cambia según la URL, sin recargar. React Router es la librería que lo hace. Envolvés todo con <BrowserRouter>, definís qué componente va en cada URL con <Routes> y <Route>, navegás con <Link> en vez de recargar, y para el detalle de cada producto usás una ruta dinámica (:id) que lee su valor con useParams.
+
+Y lo importante: esto ya no es un ejercicio. Es la navegación de tu proyecto final.
+
+Los conceptos
+
+SPA y Router (Temas 1-2)
+Una sola página, el componente cambia según la URL. React no trae navegación; se usa react-router-dom. <BrowserRouter> envuelve la app en main.jsx y la conecta con la URL del navegador.
+
+Rutas y navegación (Temas 3-4)
+<Routes> agrupa, <Route path="..." element={<X/>} /> mapea URL a componente. El element lleva el componente como JSX (<Home />), no solo el nombre. <Link to="..."> navega sin recargar (nunca <a href> en una SPA). path="*" es el comodín para 404. Lo fijo (NavBar) va fuera de <Routes>; lo que cambia, adentro.
+
+Rutas dinámicas (Tema 5)
+path="/product/:id" — el :id es variable, una ruta sirve para infinitos productos. El componente lee ese valor con const { id } = useParams(). El nombre tiene que coincidir con el de la ruta.
+
+Lo que sabés hacer ahora
+Convertir una app de una vista en una con varias páginas
+Definir rutas y asociarlas a componentes
+Navegar con enlaces sin recargar
+Manejar URLs inexistentes (404)
+Crear una ruta dinámica que sirva para cualquier producto y leer su parámetro
+Tus errores del módulo
+<link> en minúscula — es una etiqueta HTML real, no el componente. Tiene que ser <Link>. Caso clásico de "una letra cambia todo".
+npm install en la carpeta equivocada — un nivel arriba del proyecto. Siempre mirá el prompt antes del comando.
+
+
+Parte A · Teoría
+
+1. ¿Qué es una SPA y cómo hace para tener "páginas" distintas sin recargar? SPA (single aplicattion app) es una aplicacion web que carga una sola pagina HTML y con javascript y un sistema de rutas (router-react), cambia el contenido que se muestra sin que se tenga que recargar toda la pagina.
+
+2. ¿Por qué en una SPA se usa <Link> y no <a href>? ¿Qué pasaría con el <a>?
+Se usa <Link> porque permite navegar entre las rutas de la SPA sin recargar toda la pagina con <a> el navegador realiza una navegacion tradicional, solicita nuevamente la pagina y la app se vuelve a cargar, provocando un reinicio. 
+
+3. En <Route path="/product/:id" element={<ProductDetail />} />, ¿qué significa el :id y qué ventaja da frente a escribir una ruta por producto?
+id es el parametro dinamico de la url, permite que esa rute funcione para diferentes productos, /producto1, /producto 10, etc. Su ventaja es que una sola ruta sirve a todos los productos. 
+4. ¿Cómo hace el componente ProductDetail para saber qué producto mostrar?
+ProductDetail obtiene el id que viene en la URL utilizando el hook useParams() de React Router.
+const { id } = useParams(); 
+Si estamos en producto/14 ==> entonces javascript id vale 14 con ese id el componente puede buscar el producto correspondiente en los datos o usarlo para hacer fetch en una api. 
+
+5. En App.jsx, la NavBar está fuera de <Routes> y las páginas adentro. ¿Por qué esa diferencia?
+por que NavBar es un componente compartido que queremos que aparezca en todas las paginas. Esta fuera para que sea visible en las distintas rutas mientras navegamos. 
+
+import { Routes, Route } from 'react-router-dom'; // no se importo Link aca
+import Home from './pages/Home';
+import Cart from './pages/Cart';
+
+function App() {
+  return (
+    <div>
+      <nav>
+        <Link to="/">Inicio</Link> 
+        <Link to="/cart">Carrito</Link>
+      </nav>
+      <Routes>
+        <Route path="/" element={Home} /> // aca home no esta escrito como jsx deberia ver se asi {<home />}
+        <Route path="/cart" element={<Cart />} />
+      </Routes>
+    </div>
+  );
+}
+
+export default App;
+
+Escribí:
+
+Una ruta dinámica para una página de categoría, con la forma /category/:nombre, que muestre el componente Category.
+El componente Category, que lea el parámetro nombre de la URL y muestre "Categoría: " seguido de ese nombre.
+
+Acordate: useParams, el nombre del parámetro tiene que coincidir con el de la ruta, y el destructuring.
+
+// App.jsx
+import { Routes, Route } from "react-router-dom";
+import Category from "./pages/Category";
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/category/:nombre" element={<Category />} />
+    </Routes>
+  );
+}
+
+// Category.jsx
+import { useParams } from "react-router-dom";
+
+function Category() {
+  const { nombre } = useParams();
+
+  return <h1>Categoría: {nombre}</h1>;
+}
+
+export default Category;
