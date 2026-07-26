@@ -222,3 +222,13 @@ Cómo se lee	    nombre	                    ref.current
 — pasar una función que genera el contenido usando datos del componente. Poco usado hoy.
 11. HOC 
 — función que recibe un componente y devuelve otro con lógica agregada. Poco usado hoy.
+
+## MODULO 5 TEMA 1
+1. <BrowserRouter> 
+— envuelve la app y la conecta con la URL del navegador.
+2. <Routes> / <Route> 
+— contenedor de rutas / una ruta (path + element).
+3. <Link to="..."> 
+— navega sin recargar (reemplaza al <a href>).
+4. path="*" 
+— ruta comodín para las URLs que no existen (404).
