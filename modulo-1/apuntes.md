@@ -549,3 +549,47 @@ function Category() {
 }
 
 export default Category;
+
+La pregunta: en el Tema 1 de este módulo dedujiste algo solo. ¿Por qué el carrito de un e-commerce tiene que vivir en un estado "global" o "por encima de las páginas", y no dentro del componente del catálogo? (pista: pensá qué le pasa a un estado cuando su componente se desmonta al navegar).
+
+Tiene que vivir en estado global o por encima de las paginas ya que si esta dentro de una de las paginas, se perderia al salir de ellas, va por fuera para que siga vivo aunque la pagina cambie. 
+
+El código: escribí de memoria el destructuring para leer un parámetro id de la URL con el hook de Router. Una línea.
+
+function Category() {
+  const { nombre } = useParams();
+}
+
+## Repaso · Módulo 6
+El arco del módulo
+
+Este módulo resolvió un problema concreto: cómo comparten estado componentes que están lejos en el árbol. El hilo:
+
+Pasar datos con props funciona entre padre e hijo, pero cuando el dato tiene que llegar a un componente lejano, terminás haciendo prop drilling —pasarlo por intermediarios que no lo usan—. La Context API lo resuelve: creás una caja compartida con createContext, la ofrecés a toda la app con un Provider, y cualquier componente la lee con useContext desde donde esté, sin intermediarios. Lo empaquetaste en un Custom Provider (CartProvider) y un hook personalizado (useCart).
+
+Y el resultado es la pieza más importante de tu e-commerce hasta ahora: el carrito global.
+
+Los conceptos
+
+El problema (Tema 1)
+Prop drilling: pasar un dato por componentes que no lo usan solo para que llegue a uno profundo. Genera acoplamiento, dificulta el mantenimiento, no escala. Estado local (useState) para lo cercano; estado global (Context) para lo que muchos componentes lejanos necesitan.
+
+La solución (Temas 2-4)
+createContext() crea la caja. El Provider la envuelve y ofrece un value a todos sus children. useContext (o tu useCart) lee ese value desde cualquier componente adentro. El estado real vive en el Provider; se modifica con funciones que también van en el value.
+
+Custom Provider y hook (Temas 5-6)
+Encapsular todo —contexto, estado, funciones, Provider— en un componente propio (CartProvider), y dar un atajo para consumir (useCart). Deja main.jsx limpio y la lógica en un solo lugar.
+
+En el punto B, falta renderizar el provider y falta usar el ThemeContext en useContext
+
+import { useTheme } from './ThemeContext';
+
+export function ThemeButton() {
+  const  {theme, toggleTheme } = useTheme();
+
+  return (
+    <button onClick={toggleTheme}>
+    {theme}
+    </button>
+  );
+}

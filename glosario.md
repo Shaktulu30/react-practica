@@ -232,3 +232,41 @@ Cómo se lee	    nombre	                    ref.current
 — navega sin recargar (reemplaza al <a href>).
 4. path="*" 
 — ruta comodín para las URLs que no existen (404).
+
+## MODULO 6 TEMA 1
+1. Prop drilling 
+— pasar un dato por componentes intermedios que no lo usan, solo para que llegue a uno más profundo.
+2. Estado local 
+— vive en un componente, para él y sus hijos cercanos (useState).
+3. Estado global 
+— compartido por componentes lejanos; Context es la forma nativa de React.
+4. Context API 
+— mecanismo de React para compartir estado global sin prop drilling.
+5. createContext() 
+— crea el contexto (la caja compartida).
+6. Provider 
+— componente que provee el valor a todo lo que envuelve.
+7. useContext 
+— hook de React que lee el valor del Provider.
+8. Custom Provider 
+— componente propio que encapsula el contexto, su estado y sus funciones (tu CartProvider).
+9. Hook personalizado 
+— función propia que empieza con use y usa otros hooks adentro (tu useCart).
+
+## Modulo 7
+1. Firebase 
+— plataforma de Google con servicios backend listos para usar.
+2. Serverless 
+— usás servidores sin administrarlos.
+3. BaaS (Backend as a Service) 
+— el backend viene como servicio listo.
+4. Firestore 
+— la base de datos de Firebase. NoSQL, guarda documentos.
+5. NoSQL 
+— base de datos flexible basada en documentos (objetos), no en tablas rígidas.
+6. Colección 
+— grupo de documentos (como una tabla / el array del catálogo).
+7. Documento 
+— un elemento con ID único y campos (como una fila / un objeto).
+8. Campos 
+— los datos dentro de un documento (como las columnas).
